@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import './App.css';
 
 function App() {
+  // array for collectiong background colors
   let bgColors = [
     '#1e90ff',
     '#f44336',
@@ -14,8 +15,9 @@ function App() {
     '#808080',
   ]
 
-  let [bgBoxes, setBgBoxes] = useState(bgColors)
+  let [bgBoxes, setBgBoxes] = useState(bgColors) // variable for bgBoxes
 
+  // fuction for change color style and set to bgBoxes
   const changeStyle = () => {
     for (let i = bgColors.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -41,11 +43,11 @@ function App() {
       </div>
 
       <div className="main-box-2">
+        <div className="boxes box-7" style={{backgroundColor: bgBoxes[6]}} onClick={changeStyle}>7</div>
         <div className="sub-box-3">
           <div className="boxes box-5" style={{backgroundColor: bgBoxes[4]}} onClick={changeStyle}>5</div>
           <div className="boxes box-6" style={{backgroundColor: bgBoxes[5]}} onClick={changeStyle}>6</div>
         </div>
-        <div className="boxes box-7" style={{backgroundColor: bgBoxes[6]}} onClick={changeStyle}>7</div>
         <div className="sub-box-4">
           <div className="boxes box-8" style={{backgroundColor: bgBoxes[7]}} onClick={changeStyle}>8</div>
           <div className="boxes box-9" style={{backgroundColor: bgBoxes[8]}} onClick={changeStyle}>9</div>

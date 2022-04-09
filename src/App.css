@@ -1,21 +1,22 @@
 .boxes {
-  border: 1px solid;
   font-size: 20px;
   font-weight: bold;
-  background-color: DodgerBlue;
   margin: 5px;
   cursor: pointer;
 }
 
+/* spliting the main screen into 2 (upside and downside) */
 .main-box-1, .main-box-2 {
   display: flex;
 }
 
+/* setup text color and alignment for all div */
 .main-box-1 > div, .main-box-2 > div {
     color: white;
     text-align: center;
 }
 
+/* using css queries for handler > 600px screen */
 @media screen and (min-width: 601px) {
   div {
     line-height: 150px;
@@ -29,6 +30,7 @@
     line-height: 300px;
   }
 
+  /* assign sub box 2 (top right) with flex with direction = row */
   .sub-box-2 {
     display: flex;
     flex-direction: row;
@@ -38,39 +40,60 @@
     flex-grow: 1;
   }
 
+  /* setup line-height: for smaller div */
   .box-5, .box-9 {
     line-height: 100px;
   }
 
+  /* setup line-height: for bigger div */
   .box-8, .box-6 {
     line-height: 200px;
   }
+
+  /* ordering the div set number 7 to the midle */
+  .box-7 {
+    order: 2;
+  }
+
+  .sub-box-3 {
+    order: 1;
+  }
+
+  .sub-box-4 {
+    order: 3;
+  }
 }
 
+/* using css queries for handler <= 600px screen */
 @media screen and (max-width: 600px) {
   div {
     line-height: 100px;
   }
 
+  /* setup general div with direction to stacked by column */
   .main-box-1, .main-box-2 {
     flex-direction: column;
     flex-wrap: wrap;
   }
 
+  /* upper side setuped 1, 2 and (3 + 4) stacked by column */
   .sub-box-1 {
     display: flex;
     flex-direction: column;
   }
 
-  .sub-box-2, .sub-box-3, .sub-box-4 {
+  /* boxes for (3 and 4) was stacked by row */
+  .sub-box-2 {
     display: flex;
     flex-direction: row;
   }
 
+  /* setup assigned boxes to grow = 1 */
   .box-3, .box-4, .box-5, .box-8, .box-6, .box-9 {
     flex-grow: 1;
   }
 
+  /* ordering box number 2 into bottom of main 1 (upperside) */
   .sub-box-2 {
     flex-grow: 1;
     order: 1;
@@ -80,15 +103,25 @@
     order: 2;
   }
 
+  /* ordering box number 7 sorted as no 1 for downside */
   .box-7 {
     order: 1;
   }
 
+  /* split into 2 between 5+6 and 8+9 with float and margin */
   .sub-box-3 {
     order: 2;
+    width: 50%;
+    position: relative;
+    float: left;
   }
 
   .sub-box-4 {
     order: 3;
+    width: 50%;
+    position: relative;
+    float: right;
+    top: -215px;
+    left: 50%;
   }
 }
